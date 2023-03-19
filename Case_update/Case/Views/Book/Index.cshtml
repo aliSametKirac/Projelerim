@@ -1,0 +1,24 @@
+﻿
+<div class="text-center">
+    <h2>Kitap Listesi</h2>
+</div>
+<div class="col-12 mx-auto">
+    <table class="table table-center">
+        <thead>
+            <tr id="dataTable" class="text-center">
+                <th style="width: 30%">Kitap İsmi</th>
+                <th style="width: 30%">Yazar İsmi</th>
+                <th style="width: 30%">Fiyat</th>
+                <th style="width: 30%">OperasyonLar</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div>
+    <a asp-action="Upsert" class="btn btn-primary ">Yeni Kitap Ekle</a>
+</div>
+
+@*JS Paket Hatası*@
+@section Scripts {
+<script  src = " ~/js/category.js " ></script>
+}
