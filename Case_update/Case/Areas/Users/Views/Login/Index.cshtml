@@ -1,6 +1,7 @@
 ﻿@model Case.Areas.Users.Models.UserLoginViewModel
 
 @{
+    ViewData["Title"] = "Giriş Sayfası";
     Layout = null;
 }
 
@@ -23,32 +24,22 @@
               <hr />
               <div class="form-floating">
                 <label asp-for="Username" class="form-label">Kullanıcı Adını</label>
-                <input
-                  type="text"
-                  asp-for="Username"
-                  class="form-control"
-                  autocomplete="username"
-                  aria-required="true"
-                />
+                <input type="text" asp-for="Username" class="form-control" autocomplete="username" aria-required="true"/>
               </div>
               <div class="form-floating">
                 <label asp-for="Password" class="form-label">Parola</label>
-                <input
-                  type="text"
-                  asp-for="Password"
-                  class="form-control"
-                  autocomplete="password"
-                  aria-required="true"
-                />
+                <input type="text" asp-for="Password" class="form-control" autocomplete="password" aria-required="true"/>
               </div>
+              <br/>
               <div>
                 <button type="submit" class="w-100 btn btn-lg btn-primary">
-                  Log in
+                  Giriş Yap
                 </button>
               </div>
+              <br />
               <div>
                 <p>
-                  <a href="/Users/Register/Index/">Register as a new user</a>
+                  <a href="/Users/Register/Index/">Yeni Kullanıcı Oluştur</a>
                 </p>
               </div>
             </form>

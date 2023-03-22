@@ -3,6 +3,7 @@ using CaseModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using System;
 
 namespace Case.Areas.Users.Controllers
 {
@@ -15,6 +16,7 @@ namespace Case.Areas.Users.Controllers
         public LoginController(SignInManager<ApplicationUser> signInManager)
         {
             _signInManager = signInManager;
+            
         }
 
         [HttpGet]
@@ -39,7 +41,7 @@ namespace Case.Areas.Users.Controllers
                 }
             }
 
-            return View();
+            return View(p);
         }
     }
 }

@@ -2,6 +2,14 @@
 using CaseModels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Stripe;
+using Stripe.Checkout;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+
 
 namespace Case.Controllers
 {
@@ -16,8 +24,8 @@ namespace Case.Controllers
 
         public IActionResult Index()
         {
-            var value = _unitOfWork.Author.GetAll();
-            return View(value);
+            
+            return View();
         }
 
         //GET
@@ -74,27 +82,25 @@ namespace Case.Controllers
         }
 
         #region API Calls
-
         [HttpGet]
         public IActionResult GetAll()
         {
-            var allObj = _unitOfWork.Book.GetAll(includeProperties: "Author");
-            return Json(new { data = allObj });
+            var bookList = _unitOfWork.Book.GetAll(includeProperties: "Author");
+            return Json(new { data = bookList });
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
-            var objFromDb = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
-            if (objFromDb == null)
+            var obj = _unitOfWork.Book.GetFirstOrDefault(u => u.Id == id);
+            if (obj == null)
             {
                 return Json(new { success = false, message = "Hata" });
             }
-            _unitOfWork.Book.Remove(objFromDb);
+            _unitOfWork.Book.Remove(obj);
             _unitOfWork.Save();
             return Json(new { success = true, message = "Silindi" });
         }
-
         #endregion
     }
 }

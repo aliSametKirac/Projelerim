@@ -15,7 +15,14 @@ namespace CaseDataAccess.Repository
 
         public void Update(Book obj)
         {
-            _db.Books.Add(obj);
+            var objFromDb = _db.Books.FirstOrDefault(u => u.Id == obj.Id);
+            if (objFromDb != null) 
+            { 
+                objFromDb.Title = obj.Title;
+                objFromDb.Description = obj.Description;
+                objFromDb.Author = obj.Author;
+                objFromDb.Price = obj.Price;
+            }
         }
     }
 }
