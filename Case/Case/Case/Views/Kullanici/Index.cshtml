@@ -1,0 +1,27 @@
+﻿<div class="container">
+    <div class="text-center">
+        <h2>Kullanıcı Listesi</h2>
+    </div>
+    <div class="row" style="width:100%">
+        <table id="tblData" class="table table-center">
+            <thead>
+                <tr class="text-center">
+                    <th style="width: 20%">Tam İsmi</th>
+                    <th style="width: 20%">EMail</th>
+                    <th style="width: 20%">Görevi</th>
+                    <th style="width: 20%">Şirket</th>
+                    <th style="width: 20%">Operasyonlar</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div>
+        <a asp-controller="Kullanici" asp-action="Upsert" class="btn btn-primary">
+            Kullanacı Ekle
+        </a>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/kullanici.js"></script>
+}

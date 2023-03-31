@@ -1,0 +1,57 @@
+﻿@model CaseModels.ViewModels.KullaniciVM
+
+<form method="post" asp-action="Upsert">
+    <h2 class="text-center">@(Model.Kullanici.Id !=0?  "Update" : "Create") Kullanıcı İşlemleri</h2>
+    <input asp-for="Kullanici.Id" type="hidden" />
+    <div class="form-group">
+        <label>İsim</label>
+        <input asp-for="Kullanici.Adi" class="form-control" />
+        <span asp-validation-for="Kullanici.Adi" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Soyadi</label>
+        <input asp-for="Kullanici.Soyadi" class="form-control" />
+        <span asp-validation-for="Kullanici.Soyadi" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label>EMail</label>
+        <input asp-for="Kullanici.EMail" class="form-control" />
+        <span asp-validation-for="Kullanici.EMail" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Görevi</label>
+        <input asp-for="Kullanici.Gorevi" class="form-control" />
+        <span asp-validation-for="Kullanici.Gorevi" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Şirket</label>
+        <select asp-for="Kullanici.SirketId" asp-items="@Model.SirketList" class="form-select">
+            <option disabled selected>-- Şirketi Seçin --</option>
+        </select>
+        <span asp-validation-for="Kullanici.SirketId" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="col-12">
+        @if (Model.Kullanici.Id != 0)
+        {
+            <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-primary" onclick="return ValidateInput()" style="width:150px">Create</button>
+        }
+        <a asp-controller="Kullanici" asp-action="Index" class="btn btn-secondary">
+            Geri Dön
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

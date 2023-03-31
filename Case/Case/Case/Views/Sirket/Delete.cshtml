@@ -1,0 +1,38 @@
+﻿@using CaseModels;
+@model Sirket
+
+<form method="post" asp-action="Delete">
+    <input asp-for="Id" hidden />
+    <div class="p-3 mt-4">
+        <div class="row pb-2">
+            <h2>Şirket Silme</h2>
+            <br />
+        </div>
+        <div class="mb-3">
+            <label class="control-label">Şirket İsmi</label>
+            <input asp-for="SirketAdi" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="control-label">Şirket Vergi No</label>
+            <input asp-for="SirketVergiNo" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="control-label">Şirket Telefon Numarası</label>
+            <input asp-for="SirketTelefonu" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="control-label">Şirket Adresi</label>
+            <input asp-for="SirketAdresi" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-danger">Sil</button>
+        <a asp-controller="Sirket" asp-action="Index" class="btn btn-secondary">
+            Geri Dön
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

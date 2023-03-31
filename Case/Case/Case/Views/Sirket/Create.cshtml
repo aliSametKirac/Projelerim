@@ -1,0 +1,41 @@
+﻿@using CaseModels;
+@model Sirket
+
+<form method="post">
+	<div class="p-1 mt-1">
+		<div class="row">
+			<h2>Yeni Sirket Ekleme Sayfası</h2>
+			<br />
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Şirket İsmi</label>
+			<input asp-for="SirketAdi" class="form-control" />
+			<span asp-validation-for="SirketAdi" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Şirket Vergi No</label>
+			<input asp-for="SirketVergiNo" class="form-control" />
+			<span asp-validation-for="SirketVergiNo" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Şirket Telefon Numarası</label>
+			<input asp-for="SirketTelefonu" class="form-control" />
+			<span asp-validation-for="SirketTelefonu" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Şirket Adresi</label>
+			<input asp-for="SirketAdresi" class="form-control" />
+			<span asp-validation-for="SirketAdresi" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary">Yeni Şirket Ekleme</button>
+		<a asp-controller="Sirket" asp-action="Index" class="btn btn-secondary">
+			Geri Dön
+		</a>
+	</div>
+</form>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
