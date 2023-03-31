@@ -23,7 +23,7 @@ locationBtn.addEventListener("click", ()=>{
 
 function onSuccess(position){
     const {latitude, longitude} = position.coords;
-    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=a16e33bdb752c9b5778d38c42614a6e4&lang=tr`;
+    api = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=a16e33bdb752c9b5778d38c42614a6e4&lang=tr`;
     console.log(api)
     fetchData()
 }
@@ -34,9 +34,10 @@ function onError(error){
 }
 
 function requestApi(city){
-    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=a16e33bdb752c9b5778d38c42614a6e4&lang=tr`;
+    api = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=a16e33bdb752c9b5778d38c42614a6e4&lang=tr`;
     fetchData()
 }
+
 
 function fetchData(){
     infoTxt.innerText = "Sonuçlar getiriliyor..."
@@ -44,18 +45,24 @@ function fetchData(){
     fetch(api).then(response => response.json()).then(result => weatherDetails(result))
 }
 
-
 function weatherDetails(info){
     if(info.cod == "404"){
         infoTxt.classList.replace("pending", "error")
         infoTxt.innerText = `${inputField.value} Şehir bulunamadı...`
     }else{
-        const city = info.name
-        const country = info.sys.country
-        const {description, id} = info.weather[0]
-        const {feels_like, humidity, temp, pressure} = info.main
-        const {speed} = info.wind
-
+        const list = info.list
+        const temp = list[0,9,17,25].main.temp
+        const dt_txt = list[0,9,17,25].dt_txt
+        console.log(dt_txt[2])
+        const city = info.city.name
+        const country = info.city.country
+        const id = info.weather
+        const description = list[0].weather[0].description
+        const feels_like  = list[0].main.feels_like
+        const humidity = list[0].main.humidity
+        const pressure  = list[0].main.pressure
+        const speed = list[0].wind.speed
+        
         if(id==800){
             wIcon.src = "Img/clear.svg"
         }else if(id => 200 && id <= 232){
@@ -72,6 +79,12 @@ function weatherDetails(info){
         
 
         wrapper.querySelector(".temp .numb").innerText = Math.floor(temp)
+        wrapper.querySelector(".guess .num-1").innerText = Math.floor(list[9].main.temp)
+        wrapper.querySelector(".guess .num-2").innerText = Math.floor(list[17].main.temp)
+        wrapper.querySelector(".guess .num-3").innerText = Math.floor(list[25].main.temp)
+        wrapper.querySelector(".guess .day1").innerText = list[9].dt_txt
+        wrapper.querySelector(".guess .day2").innerText = list[17].dt_txt
+        wrapper.querySelector(".guess .day3").innerText = list[25].dt_txt
         wrapper.querySelector(".weather").innerText = description
         wrapper.querySelector(".location").innerText = `${city}, ${country}`
         wrapper.querySelector(".temp .numb-2").innerText = Math.floor(feels_like)
@@ -84,9 +97,10 @@ function weatherDetails(info){
         wrapper.classList.add("active")
 
     }
+
+
     
 }
-
 arrowBack.addEventListener("click", () => {
     wrapper.classList.remove("active")
 })
