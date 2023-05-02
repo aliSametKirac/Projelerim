@@ -1,0 +1,53 @@
+﻿@using CaseModels.Concrete;
+@using CaseUtility.Enums;
+@model Product
+
+<form method="post">
+	<div class="p-1 mt-1">
+		<div class="row">
+			<h2>New Product Add Page</h2>
+			<br />
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Description</label>
+			<input asp-for="Description" class="form-control" />
+			<span asp-validation-for="Description" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Category</label>
+			<input asp-for="Category" class="form-control" />
+			<span asp-validation-for="Category" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Unit</label>
+			<input type="number" asp-for="Unit" class="form-control" />
+			<span asp-validation-for="Unit" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Unit Price</label>
+			<input type="number"  asp-for="UnitPrice" class="form-control" />
+			<span asp-validation-for="UnitPrice" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label>Status</label>
+			<select asp-for="Status" asp-items="Html.GetEnumSelectList<Status>()" class="form-select">
+				<option disabled selected>-- Status Select --</option>
+			</select>
+			<span asp-validation-for="Status" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Create Date</label>
+			<input type="date" asp-for="CreateDate" class="form-control" />
+			<span asp-validation-for="CreateDate" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label class="control-label">Update Date</label>
+			<input type="date" asp-for="UpdateDate" class="form-control" />
+			<span asp-validation-for="UpdateDate" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary">Adding New Product</button>
+		<a asp-controller="Product" asp-action="Index" class="btn btn-secondary">
+			Turn Back
+		</a>
+	</div>
+</form>

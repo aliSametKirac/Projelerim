@@ -1,0 +1,14 @@
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\bin\Debug\net6.0\CaseModels.deps.json
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\bin\Debug\net6.0\CaseModels.runtimeconfig.json
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\bin\Debug\net6.0\CaseModels.dll
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\bin\Debug\net6.0\CaseModels.pdb
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\CaseModels.csproj.AssemblyReference.cache
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\CaseModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\CaseModels.AssemblyInfoInputs.cache
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\CaseModels.AssemblyInfo.cs
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\CaseModels.csproj.CoreCompileInputs.cache
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\CaseModels.dll
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\refint\CaseModels.dll
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\CaseModels.pdb
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\CaseModels.genruntimeconfig.cache
+C:\Users\ASAMED\Desktop\Mobiliva AR-GE Merkezi\Case\CaseModels\obj\Debug\net6.0\ref\CaseModels.dll

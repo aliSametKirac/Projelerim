@@ -1,0 +1,26 @@
+﻿<div class="container">
+    <div class="text-center">
+        <h2>Order Detail Page</h2>
+    </div>
+    <div class="row" style="width:100%">
+        <table id="tblData" class="table table-center">
+            <thead>
+                <tr class="text-center">
+                    <th style="width: 25%">Customer Name</th>
+                    <th style="width: 25%">Description</th>
+                    <th style="width: 25%">Total Amount</th>
+                    <th style="width: 25%"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div>
+        <a asp-controller="OrderDetail" asp-action="Upsert" class="btn btn-primary">
+            Order Detail Add
+        </a>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/orderDetail.js"></script>
+}
