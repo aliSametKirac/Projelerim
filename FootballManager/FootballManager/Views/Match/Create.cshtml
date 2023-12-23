@@ -1,0 +1,33 @@
+﻿@model List<Match>
+
+<h2>Matches</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Match Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var match in Model)
+        {
+            <tr>
+                <td>@match.Id</td>
+                <td>@match.Team.Name</td>
+                <td>@match.AwayID</td>
+                <td>@match.MatchDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@match.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@match.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@match.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Create New Match</a>
