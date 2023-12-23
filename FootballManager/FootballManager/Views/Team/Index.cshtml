@@ -1,0 +1,28 @@
+﻿@model List<Team>
+
+<h2>Team List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model)
+        {
+            <tr>
+                <td>@team.Id</td>
+                <td>@team.Name</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@team.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@team.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@team.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-success" asp-action="Create">Takım Ekle</a>

@@ -4,13 +4,8 @@ namespace FootballManager.Models
 {
     public class DataBase : DbContext
     {
-        public DataBase() { }
-
-        public DataBase(DbContextOptions<DataBase> options) : base(options) { }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DataBase(DbContextOptions<DataBase> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-QCBLITT;Initial Catalog=DataBase;User Id=Sa;Password=1234");
         }
 
         public virtual DbSet<AssistsPlayer> AssistsPlayers { get; set; }

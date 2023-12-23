@@ -1,0 +1,71 @@
+﻿@model Match
+
+<h2>Match Details</h2>
+
+<div>
+    <h4>Match</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.Id</dd>
+
+        <dt class="col-sm-2">Home Team</dt>
+        <dd class="col-sm-10">@Model.Team.Name</dd>
+
+        <dt class="col-sm-2">Away Team</dt>
+        <dd class="col-sm-10">@Model.AwayID</dd>
+
+        <dt class="col-sm-2">Match Date</dt>
+        <dd class="col-sm-10">@Model.MatchDate.ToShortDateString()</dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Assists Players</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Player</th>
+                <th>Assists Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var assistsPlayer in Model.AssistsPlayers)
+            {
+                <tr>
+                    <td>@assistsPlayer.Id</td>
+                    <td>@assistsPlayer.Player.FirstName @assistsPlayer.Player.LastName</td>
+                    <td>@assistsPlayer.AssistsCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Goal Players</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Player</th>
+                <th>Goal Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var goalPlayer in Model.GoolPlayers)
+            {
+                <tr>
+                    <td>@goalPlayer.Id</td>
+                    <td>@goalPlayer.Player.FirstName @goalPlayer.Player.LastName</td>
+                    <td>@goalPlayer.GoalCount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<a asp-action="Index">Back to List</a>

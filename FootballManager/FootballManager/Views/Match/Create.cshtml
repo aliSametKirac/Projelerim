@@ -1,33 +1,26 @@
-﻿@model List<Match>
+﻿@model Match
 
-<h2>Matches</h2>
+<h2>Create Match</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Home Team</th>
-            <th>Away Team</th>
-            <th>Match Date</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var match in Model)
-        {
-            <tr>
-                <td>@match.Id</td>
-                <td>@match.Team.Name</td>
-                <td>@match.AwayID</td>
-                <td>@match.MatchDate.ToShortDateString()</td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@match.Id">Details</a> |
-                    <a asp-action="Edit" asp-route-id="@match.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@match.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="HomeTeamID" class="control-label">Home Team:</label>
+        <select asp-for="HomeTeamID" class="form-control" asp-items="@(new SelectList(ViewData["Teams"] as SelectList, "Value", "Text"))"></select>
+        <span asp-validation-for="HomeTeamID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AwayID" class="control-label">Away Team:</label>
+        <input asp-for="AwayID" class="form-control" />
+        <span asp-validation-for="AwayID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MatchDate" class="control-label">Match Date:</label>
+        <input asp-for="MatchDate" class="form-control" />
+        <span asp-validation-for="MatchDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
 
-<a asp-action="Create">Create New Match</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>
